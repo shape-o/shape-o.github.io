@@ -1,1 +1,121 @@
-# shape-os.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who is the Winner?</title>
+    <!-- FontAwesome for the Trophy Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Trophy Styling */
+        .trophy-icon {
+            font-size: 80px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+        }
+
+        /* Text Styling */
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Input Field Styling */
+        .winner-input {
+            background-color: #111111;
+            border: 2px solid #333333;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            width: 300px;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .winner-input:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            font-size: 14px;
+            margin-top: 10px;
+            height: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Trophy Icon -->
+        <div class="trophy-icon">
+            <i class="fa-solid fa-trophy"></i>
+        </div>
+
+        <!-- Text -->
+        <h1>who is the winner?</h1>
+
+        <!-- Input Field -->
+        <input type="text" id="userInput" class="winner-input" placeholder="" autofocus>
+        <div id="errorMsg" class="error-message">Incorrect, try again!</div>
+    </div>
+
+    <script>
+        const inputField = document.getElementById('userInput');
+        const errorMsg = document.getElementById('errorMsg');
+
+        inputField.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const value = inputField.value.trim().toLowerCase();
+                
+                if (value === 'gogo') {
+                    // Redirects to your other code file in the same folder
+                    window.location.href = 'winner.html';
+                } else {
+                    // Show error feedback
+                    errorMsg.style.opacity = '1';
+                    inputField.style.borderColor = '#ff4d4d';
+                    
+                    setTimeout(() => {
+                        errorMsg.style.opacity = '0';
+                        inputField.style.borderColor = '#333333';
+                    }, 2000);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
