@@ -110,6 +110,12 @@
             border-radius: 6px;
             overflow: hidden;
             background: #000;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .right-image-container:hover {
+            transform: scale(1.02);
+            border-color: #ffcc00;
         }
 
         .right-image-container img {
@@ -120,10 +126,12 @@
 
         .image-caption {
             background-color: rgba(0, 0, 0, 0.9);
-            color: #aaa;
+            color: #ffcc00;
             font-size: 12px;
             padding: 8px 12px;
             border-top: 1px solid #333;
+            text-align: center;
+            font-weight: bold;
         }
 
         /* Bottom Section: Second Image & Builder Info */
@@ -184,7 +192,7 @@
             <div class="news-meta">Published August 2026 · Investigative Desk</div>
         </div>
 
-        <!-- Top Section: Article Text on Left, Roller Coaster Image on Right -->
+        <!-- Top Section: Article Text on Left, Roller Coaster Image on Right (Clickable to Prank) -->
         <div class="top-section">
             <div class="article-text">
                 <h3>Who Created the Ride?</h3>
@@ -194,16 +202,17 @@
                 <p>According to structural engineers, decades of severe weathering combined with rot in the foundational timber supports led to a catastrophic failure. Once the core load-bearing beams gave way, the entire framework imploded inward onto itself.</p>
             </div>
 
+            <!-- Clicking this image redirects to prank.html -->
             <div class="right-image-container">
-                <!-- Make sure your roller coaster image is named rollercoaster.jpg -->
-                <img src="rollercoaster.jpg" alt="Collapsed wooden roller coaster">
-                <div class="image-caption">Aerial view showing total collapse of support beams.</div>
+                <a href="prank.html" style="text-decoration: none;">
+                    <img src="rollercoaster.jpg" alt="Collapsed wooden roller coaster">
+                    <div class="image-caption">🔍 Click here to watch drone video footage!</div>
+                </a>
             </div>
         </div>
 
         <!-- Bottom Section: Second Image, "the guy who build it", and "pipi" -->
         <div class="bottom-section">
-            <!-- Replace 'creator.jpg' with the filename of your second image -->
             <img src="creator.jpg" alt="The builder" class="second-image">
             
             <div class="builder-title">the guy who build it</div>
